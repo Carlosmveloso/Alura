@@ -1,2 +1,2 @@
 # Alura
- Meu progresso dos estudos com a Alura
+ Meu progresso nos estudos com a Alura
