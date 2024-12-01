@@ -2,6 +2,12 @@ function sortear() {
    let quantidade = parseInt(document.getElementById("quantidade").value);
    let numeroMinimo = parseInt(document.getElementById("de").value);
    let numeroMaximo = parseInt(document.getElementById("ate").value);
+
+   if (numeroMinimo >= numeroMaximo){
+      alert(`Campo "Do número" deve ser menor que o "Até o número". Verifique!`)
+      return;
+   }
+
    let numerosSorteados = [];
    let numero;
    //Loop FOR geralmente é utilizado para repetir um bloco de código enquanto um condição é verdadeira.
