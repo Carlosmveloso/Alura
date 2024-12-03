@@ -1,0 +1,15 @@
+body {
+    background-color: black;
+    color: #F6F6F6;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    background-color: #22D4FD;
+    color: black;
+    text-decoration: none;
+}
+
+strong {
+    color: #22D4FD;
+}
