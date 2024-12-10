@@ -1,0 +1,21 @@
+@media (max-width: 1260px) /*Os () quer dizer que tem uma condição*/ {
+
+.cabecalho {
+  padding: 8%;
+}
+
+.cabecalho__menu {
+  justify-content: center;
+}
+
+.apresentacao {
+  padding: 5%;
+  display:flex;
+  flex-direction: column-reverse;
+}
+
+.apresentacao__conteudo{
+  width: auto;/* Faz com que ocupe a área total disponível já calculando as margins e pasdding.*/
+}
+
+}
