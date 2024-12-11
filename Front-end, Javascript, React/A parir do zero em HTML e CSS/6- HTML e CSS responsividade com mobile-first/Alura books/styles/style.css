@@ -1,0 +1,10 @@
+@import url(./header.css);/*Está importando um estilo de outro arquivo de para o principal (nesse caso o header) para que não tenha muito código em um só arquivo.*/
+
+:root {
+    --cor-de-fundo: #C4C4C4;
+    --branco: #ffffff;
+}
+
+body {
+    background-color: var(--cor-de-fundo);
+}   
