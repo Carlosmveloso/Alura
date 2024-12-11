@@ -5,6 +5,7 @@
     --branco-principal: #FFFFFF;
     --cinza-secundario: #COCOCO;
     --botao-azul: #167BF7;
+    --botoa-azul-efeito: #024fad;
     --cor-de-fundo: #00030C;
     --fonte-principal: "Inter", Arial, Helvetica, sans-serif;    
 }
@@ -54,6 +55,10 @@ body {
     margin-bottom: 1rem;
 }
 
+.container__botao:hover {
+    background-color: var(--botoa-azul-efeito);
+}
+
 .botao_secundario {
     background-color: transparent;
     color: var(--branco-principal);
@@ -95,3 +100,69 @@ body {
     display: inline-block;
     margin-top: 1rem;
 }
+
+.dispositivos {
+    text-align: center;
+}
+
+.dispositivos__titulo{
+    margin-bottom: 2.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--branco-principal);
+}
+
+.dispositivos__lista {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;/*Serve pare tirar o estilo da lista*/
+    color: var(--cinza-secundario);
+    margin: 4.3rem 0 9rem 0;
+}
+
+.lista__item{
+    font-size: 2rem;
+    color: var(--cinza-secundario);
+}
+
+.rodape {
+    text-align: center;
+}
+
+.rodape__imagem {
+    margin-bottom: 2.5rem;
+}
+
+.rodape__lista {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.lista__link {
+    list-style-type: none;
+    margin: 1rem;
+}
+
+.lista__link:hover{
+    color: var(--botao-azul);
+}
+
+.lista__link:active { /*A função active ocorre quando eu estou clicando em algo*/
+    color: purple;
+}
+
+.lista__link__conteudo{
+    color: var(--cinza-secundario);
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.rodape__texto {
+    margin-bottom: 2rem;
+}
+
+.rodape__texto__secundario {
+    padding: 0 5rem 5rem 5rem;
+}
+
