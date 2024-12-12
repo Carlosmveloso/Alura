@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .container {
@@ -21,5 +22,15 @@
     background-repeat: no-repeat;
     background-position: center;
     display: inline-block;
+}
+
+.lista__menu {
+    display: none; /*Faz com que o elemento desapareça e não ocupe espaço na tela*/
+    position: absolute;
+    top: 100%;
+}
+
+.container__botao:checked~.lista__menu { /*Seria a maneira mais próxima de uma condicional dentro do CSS.*/
+    display: block;
 }
 
