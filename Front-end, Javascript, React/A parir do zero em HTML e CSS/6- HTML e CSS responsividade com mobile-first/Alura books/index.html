@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles/reset.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Alura books</title>
@@ -47,5 +48,39 @@
         <p class="banner__texto">Encontre em nossa estante o que precisa para seu desenvolvimento!</p>
         <input type="search" class="banner__pesquisa" placeholder="Qual será sua próxima leitura?">
     </section>
+    <section class="carrossel">
+        <h2 class="titulo__carrossel">Novos Lançamentos</h2>
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide"><img src="assets/ApacheKafka.svg" alt="Livro sobre ApacheKafka"></div>
+            <div class="swiper-slide"><img src="assets/Lideranc╠ºa.svg" alt="Livro sobre Liderança"></div>
+            <div class="swiper-slide"><img src="assets/Javascript.svg" alt="Livro sobre Javascript"></div>
+            <div class="swiper-slide"><img src="assets/Guia Front-end.svg" alt="Livro sobre Front-end"></div>
+            <div class="swiper-slide"><img src="assets/Nodejs.svg" alt="Livro sobre carreira em Front-end"></div>
+            <div class="swiper-slide"><img src="assets/Portugol.svg" alt="Livro sobre Portugol"></div>
+            ...
+            </div>      
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            spaceBetween: 10,
+            slidesPerView: 3,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets'
+            }
+        });
+    </script>
 </body>
 </html>
