@@ -21,3 +21,54 @@
     display: none;
 }
 
+.card {
+    background-color: var(--branco);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.card__descricao {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.descricao__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.descricao__titulo__livro {
+    margin: 0.5rem 0;
+    color: var(--azul);
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.descricao__texto {
+    font-size: 0.875rem;
+}
+
+.card__botoes {
+    display: flex;
+    justify-content: space-between;
+}
+
+.botoes {
+    display: flex;
+}
+
+.botoes__item {
+    margin: 0 0.5rem;
+}
+
+.botoes__ancora {
+    background-color: var(--laranja);
+    padding: 1rem 2.3rem;
+    color: var(--branco);
+    font-weight: 700;
+    text-decoration: none;
+}
+
