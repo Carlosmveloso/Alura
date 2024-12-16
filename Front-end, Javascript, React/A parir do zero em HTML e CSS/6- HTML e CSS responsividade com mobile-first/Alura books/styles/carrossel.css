@@ -1,3 +1,7 @@
+.carrossel {
+    background-color: var(--fundo-carrossel);
+}
+
 .titulo__carrossel {
     color: var(--laranja);
     background-color: var(--branco);
@@ -72,3 +76,20 @@
     text-decoration: none;
 }
 
+.favoritos__subtitulo {
+    color: var(--laranja);
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.favoritos__titulo {
+    color: var(--azul);
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin: 1rem 0;
+}
+
+.favoritos__descricao {
+    font-size: 0.875rem;
+}
