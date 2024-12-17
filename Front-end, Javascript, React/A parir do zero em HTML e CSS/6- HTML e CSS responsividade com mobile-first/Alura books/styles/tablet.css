@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+@media screen and (min-width: 1024px) { /*Quando você usa mobile-first deve usar min-width e quando se usa desktop-first deve usar max-width*/
+    .container__titulo,
+    .container__titulo__negrito {
+        font-family: var(--fonte-titulo);
+        font-size: 1.875rem;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo__negrito{
+        font-weight: 700;
+    }
+}

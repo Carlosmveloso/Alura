@@ -21,6 +21,10 @@
     padding: 1rem;
 }
 
+.container__titulo {
+    display: none;
+}
+
 .cabecalho__menu-hamburger {
     width: 24px;
     height: 24px;
