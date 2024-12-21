@@ -21,7 +21,15 @@
     padding: 1rem;
 }
 
+.container__imagem__transparente {
+    display: none;
+}
+
 .container__titulo {
+    display: none;
+}
+
+.opcoes {
     display: none;
 }
 
