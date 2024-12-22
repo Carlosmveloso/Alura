@@ -8,7 +8,7 @@
     .secao-vertical .secao__link {
         display: none;
     }
-
+    
     .container {
         padding-left: 1rem;
         padding-right: 1rem;
@@ -16,7 +16,11 @@
 
     .navbar {
         display: block;
-    }   
+    } 
+    
+    .cabecalho {
+        justify-self: center;
+    }
 
     .secao-horizontal .cartao__imagem {
         height: 4.58rem;

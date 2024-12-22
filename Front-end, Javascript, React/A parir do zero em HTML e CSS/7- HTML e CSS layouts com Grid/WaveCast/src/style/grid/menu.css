@@ -1,0 +1,11 @@
+.menu-lateral {
+    display: grid;
+    /*Poder criar e definir a altura das linhas*/
+    grid-template-rows: auto auto auto 1fr; /*Nesse caso são 4 linhas, 3 com altura auto e a última com altura 1fr*/
+    /*Outra maneira de fazer esse código é: grid-template-rows: repeat(3, auto) 1fr*/
+    row-gap: 2rem;
+}
+
+.menu-lateral__logo {
+    justify-self: center; /*Alinha os itens horizontalmente*/
+}

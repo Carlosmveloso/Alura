@@ -1,0 +1,10 @@
+.secao {
+    display: grid;
+    align-items: end;
+    row-gap: 2rem;
+}
+
+.secao-horizontal,
+.secao-vertical {
+    grid-template-rows: 70px auto;
+}
