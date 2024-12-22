@@ -1,0 +1,24 @@
+body {
+    display: grid;
+    /*Nomeia áreas para cada elemento do grid*/
+    grid-template-areas: 
+    /*Define a primeira linha ao qual aside fica na 1° coluna e header na 2° coluna */
+    "aside header"
+    /*Define a segunda linha ao qual aside fica na 1° coluna e main na 2° coluna*/
+    "aside main";
+    /*Define a largura das colunas do grid*/    
+    grid-template-columns: auto 1fr;
+}
+
+.cabecalho {
+    /*O atributo do grid-area deve ser igual ao atributo do grid-template-ares*/
+    grid-area: header;
+}
+
+.menu-lateral {
+    grid-area: aside;
+}
+
+.principal {
+    grid-area: main;
+}
