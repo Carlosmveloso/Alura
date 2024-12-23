@@ -8,3 +8,9 @@
 .secao-vertical {
     grid-template-rows: 70px auto;
 }
+
+.secao-horizontal .secao__cartoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(80%/2, max(350px, 80%/3)), 1fr));/*Faz com que todos os itens se organize em 200px.*/
+    gap: 1.5rem;
+}
