@@ -14,3 +14,13 @@
     grid-template-columns: repeat(auto-fit, minmax(min(80%/2, max(350px, 80%/3)), 1fr));/*Faz com que todos os itens se organize em 200px.*/
     gap: 1.5rem;
 }
+
+.secao-vertical .secao__cartoes .cartao a {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+}
+
+.secao-vertical .secao__cartoes .cartao__titulo {
+    flex-grow: 1;
+}
