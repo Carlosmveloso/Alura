@@ -1,28 +1,45 @@
 const item = document.getElementById("input-item");
-const botaosalvaritem = document.getElementById("adicionar-item");
-const ListaDeCompras = document.getElementById("lista-de-compras");
-
-botaosalvaritem.addEventListener("click", adicionarItem);//Ouvinte de eventos/ ("evento", função)
+const botaoSalvarItem = document.getElementById("adicionar-item");
+const listaDeCompras = document.getElementById("lista-de-compras");
+let contador = 0;
+botaoSalvarItem.addEventListener("click", adicionarItem);
 
 function adicionarItem(evento) {
     evento.preventDefault()
-    
+
     const itemDaLista = document.createElement("li");//Estamos atribuindo a variável itemDaLista a criação da tag li.
     const containerItemLista = document.createElement("div");
-    containerItemLista.classList.add("item-lista-container")//Atribuindo uma classe para a div.
+    containerItemLista.classList.add("lista-item-container");//Atribuindo uma classe para a div.
 
     const containerNomeDoItem = document.createElement("div");
+
+    const containerCheckbox = document.createElement("div");
+    containerCheckbox.classList.add("container-checkbox");
+
+    const checkboxInput = document.createElement("input");//Criando o input.
+    checkboxInput.type = "checkbox";//Definindo qual tipo é o input.
+    checkboxInput.classList.add("input-checkbox");//Definindo o id dinâmico de uma tag.
+    checkboxInput.id = "checkbox-" + contador++;//Quando for classificar um atributo não usa ().
+
+    const checkboxLabel = document.createElement("label");
+    checkboxLabel.setAttribute("for", checkboxInput.id);//Outra maneira de definir um atributo = ("tipo", valor).
+
+    const checkboxCustomizado = document.createElement("div");//Criando o checkbox customizado.
+    checkboxCustomizado.classList.add("checkbox-customizado");
+
+    checkboxLabel.appendChild(checkboxInput);//Não se coloca "" para variáveis
+    checkboxLabel.appendChild(checkboxCustomizado);
+
+    containerCheckbox.appendChild(checkboxLabel);
+    containerNomeDoItem.appendChild(containerCheckbox)
+
     const nomeDoItem = document.createElement("p");
-    nomeDoItem.innerText= item.value;//Aqui estou declarando que o valor que for digitado no input vai ser salvo aqui.
-    containerNomeDoItem.appendChild(nomeDoItem);
+    nomeDoItem.innerText = item.value;//Aqui estou declarando que o valor que for digitado no input vai ser salvo aqui.
+    containerNomeDoItem.appendChild(nomeDoItem)
 
     const containerBotoes = document.createElement("div");
-
     const botaoRemover = document.createElement("button");
-    botaoRemover.classList.add("botao-acao");
-
-    const botaoEditar = document.createElement("button");
-    botaoEditar.classList.add("botao-acao");
+    botaoRemover.classList.add("item-lista-button");
 
     const imagemRemover = document.createElement("img");
     imagemRemover.src = "img/delete.svg";//Adicionando uma imagem pelo javascript.
@@ -30,6 +47,9 @@ function adicionarItem(evento) {
 
     botaoRemover.appendChild(imagemRemover);
     containerBotoes.appendChild(botaoRemover);
+
+    const botaoEditar = document.createElement("button");
+    botaoEditar.classList.add("item-lista-button")
 
     const imagemEditar = document.createElement("img");
     imagemEditar.src = "img/edit.svg";
@@ -40,8 +60,6 @@ function adicionarItem(evento) {
 
     containerItemLista.appendChild(containerNomeDoItem);
     containerItemLista.appendChild(containerBotoes);
-
-    ListaDeCompras.appendChild(itemDaLista);
-
     itemDaLista.appendChild(containerItemLista);//Atribui que o containerItemLista seja uma tag filho da de itemLista.
+    listaDeCompras.appendChild(itemDaLista)
 }
