@@ -1,6 +1,8 @@
+//Uma váriavel que não pode ser alterada futuramente
 const item = document.getElementById("input-item");
 const botaoSalvarItem = document.getElementById("adicionar-item");
 const listaDeCompras = document.getElementById("lista-de-compras");
+//Uma variável que pode ser alterada futuramente
 let contador = 0;
 botaoSalvarItem.addEventListener("click", adicionarItem);
 
@@ -24,6 +26,17 @@ function adicionarItem(evento) {
     const checkboxLabel = document.createElement("label");
     checkboxLabel.setAttribute("for", checkboxInput.id);//Outra maneira de definir um atributo = ("tipo", valor).
 
+    checkboxLabel.addEventListener("click", function(evento) {
+        const checkboxInput = evento.currentTarget.querySelector(".input-checkbox");
+        const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
+
+        if (checkboxInput.checked) {
+            checkboxCustomizado.classList.add("checked");
+        } else {
+            checkboxCustomizado.classList.remove("checked");
+        }
+    });//.addEventListener("evento", ação);
+
     const checkboxCustomizado = document.createElement("div");//Criando o checkbox customizado.
     checkboxCustomizado.classList.add("checkbox-customizado");
 
@@ -31,7 +44,7 @@ function adicionarItem(evento) {
     checkboxLabel.appendChild(checkboxCustomizado);
 
     containerCheckbox.appendChild(checkboxLabel);
-    containerNomeDoItem.appendChild(containerCheckbox)
+    containerNomeDoItem.appendChild(containerCheckbox);
 
     const nomeDoItem = document.createElement("p");
     nomeDoItem.innerText = item.value;//Aqui estou declarando que o valor que for digitado no input vai ser salvo aqui.
