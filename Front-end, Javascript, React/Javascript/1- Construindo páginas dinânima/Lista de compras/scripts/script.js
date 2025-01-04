@@ -2,6 +2,7 @@
 const item = document.getElementById("input-item");
 const botaoSalvarItem = document.getElementById("adicionar-item");
 const listaDeCompras = document.getElementById("lista-de-compras");
+const listaComprados = document.getElementById("lista-comprados");
 //Uma variável que pode ser alterada futuramente
 let contador = 0;
 botaoSalvarItem.addEventListener("click", adicionarItem);
@@ -29,11 +30,15 @@ function adicionarItem(evento) {
     checkboxLabel.addEventListener("click", function(evento) {
         const checkboxInput = evento.currentTarget.querySelector(".input-checkbox");
         const checkboxCustomizado = evento.currentTarget.querySelector(".checkbox-customizado");
-
+        const itemTitulo = evento.currentTarget.closest("li").querySelector("#item-titulo");
         if (checkboxInput.checked) {
             checkboxCustomizado.classList.add("checked");
+            itemTitulo.style.textDecoration = "line-through";
+            listaComprados.appendChild(itemDaLista);
         } else {
             checkboxCustomizado.classList.remove("checked");
+            itemTitulo.style.textDecoration = "none"; 
+            listaDeCompras.appendChild(itemDaLista);
         }
     });//.addEventListener("evento", ação);
 
@@ -47,6 +52,7 @@ function adicionarItem(evento) {
     containerNomeDoItem.appendChild(containerCheckbox);
 
     const nomeDoItem = document.createElement("p");
+    nomeDoItem.id = "item-titulo";
     nomeDoItem.innerText = item.value;//Aqui estou declarando que o valor que for digitado no input vai ser salvo aqui.
     containerNomeDoItem.appendChild(nomeDoItem)
 
