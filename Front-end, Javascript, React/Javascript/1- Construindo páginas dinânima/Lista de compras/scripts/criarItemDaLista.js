@@ -1,15 +1,8 @@
-//Uma váriavel que não pode ser alterada futuramente
-const item = document.getElementById("input-item");
-const botaoSalvarItem = document.getElementById("adicionar-item");
-const listaDeCompras = document.getElementById("lista-de-compras");
 const listaComprados = document.getElementById("lista-comprados");
 //Uma variável que pode ser alterada futuramente
 let contador = 0;
-botaoSalvarItem.addEventListener("click", adicionarItem);
 
-function adicionarItem(evento) {
-    evento.preventDefault()
-
+export function criarItemDaLista (item) {
     const itemDaLista = document.createElement("li");//Estamos atribuindo a variável itemDaLista a criação da tag li.
     const containerItemLista = document.createElement("div");
     containerItemLista.classList.add("lista-item-container");//Atribuindo uma classe para a div.
@@ -53,7 +46,7 @@ function adicionarItem(evento) {
 
     const nomeDoItem = document.createElement("p");
     nomeDoItem.id = "item-titulo";
-    nomeDoItem.innerText = item.value;//Aqui estou declarando que o valor que for digitado no input vai ser salvo aqui.
+    nomeDoItem.innerText = item;//Aqui estou declarando que o valor que for digitado no input vai ser salvo aqui.
     containerNomeDoItem.appendChild(nomeDoItem)
 
     const containerBotoes = document.createElement("div");
@@ -79,6 +72,13 @@ function adicionarItem(evento) {
 
     containerItemLista.appendChild(containerNomeDoItem);
     containerItemLista.appendChild(containerBotoes);
+
+    const itemData = document.createElement("p");
+    itemData.innerText = `${new Date().toLocaleDateString("pt-BR", {weekday: "long"})} (${new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString("pt-BR", {hour: "numeric", minute: "numeric"})}`; //Vai pegar a data do computador de forma escrita. //Vai pegar a data e colocar em forma numérica. //Vai pegar a hora e colocar em forma numérica.
+    itemData.classList.add("texto-data");
+
     itemDaLista.appendChild(containerItemLista);//Atribui que o containerItemLista seja uma tag filho da de itemLista.
-    listaDeCompras.appendChild(itemDaLista)
+    itemDaLista.appendChild(itemData);
+
+    return itemDaLista;
 }
