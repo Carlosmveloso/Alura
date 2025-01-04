@@ -31,6 +31,7 @@ export function criarItemDaLista (item) {
         } else {
             checkboxCustomizado.classList.remove("checked");
             itemTitulo.style.textDecoration = "none"; 
+            const listaDeCompras = document.getElementById("lista-de-compras");
             listaDeCompras.appendChild(itemDaLista);
         }
     });//.addEventListener("evento", ação);

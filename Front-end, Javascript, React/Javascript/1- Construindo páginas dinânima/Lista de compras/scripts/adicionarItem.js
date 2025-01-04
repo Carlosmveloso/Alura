@@ -1,4 +1,5 @@
 import { criarItemDaLista } from "./criarItemDaLista.js";
+import { verificarListaVazia } from "./verificarListaVazia.js";
 
 //Uma váriavel que não pode ser alterada futuramente
 const item = document.getElementById("input-item");
@@ -10,4 +11,6 @@ export function adicionarItem(evento) { // O export serve para que essa função
 
     const itemDaLista = criarItemDaLista(item.value); 
     listaDeCompras.appendChild(itemDaLista)
+    verificarListaVazia(listaDeCompras);
 }
+
