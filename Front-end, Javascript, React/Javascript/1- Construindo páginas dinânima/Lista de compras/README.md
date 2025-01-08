@@ -32,3 +32,5 @@ Após baixar o projeto, você pode abrir com o Visual Studio Code. Para isso, no
 - Por fim clique em OK
 
 Ao finalizar esses passos, você pode executar a aplicação com a extensão Live Server 🏆 
+
+
