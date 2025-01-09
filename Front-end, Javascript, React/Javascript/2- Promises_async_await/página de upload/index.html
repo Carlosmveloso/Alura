@@ -42,7 +42,9 @@
             <div class="container-imagem">
                 <img src="img/imagem1.png" alt="" class="main-imagem">
             </div>
-            <button>Carregar imagem</button>
+            <button id="upload-btn">Carregar imagem</button>
+            <input type="file" id="image-upload" accept="image/" style="display: none;">
+            <!--O accept serve para que só imagens sejam aceita para fazer upload.-->
             <div class="container-imagem-nome">
                 <p>image_projeto.png</p>
                 <img src="img/close.svg" alt="close">
@@ -50,19 +52,19 @@
         </div>
         <div class="conatainer-descricao">
             <h2>Novo Projeto</h2>
-            <form action="#>
-            <div>
-                <label for="nome">Nome do projeto</label>
-                <textarea id="nome" name="nome">
-            </div>
-            <div>
-                <label for="descricao">Descrição</label>
-                <input type="text" id="descricao" name="descricao">
-            </div>
-            <div>
-                <label for="categoria">Tags</label>
-                <input type="text" id="categoria" name="categoria">
-            </div>
+            <form>
+                <div>
+                    <label for="nome">Nome do projeto</label>
+                    <input type="text" id="nome" name="nome">
+                </div>
+                <div>
+                    <label for="descricao">Descricao</label>
+                    <textarea id="descricao" name="descricao"></textarea>
+                </div>
+                <div>
+                    <label for="categoria">Tags</label>
+                    <input type="text" id="categoria" name="categoria">
+                </div>
             <ul class="lista-tags">
                 <li>
                     <p>Front-end</p>
@@ -76,7 +78,7 @@
             </form>
         </div>
     </main>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 
 </html>
