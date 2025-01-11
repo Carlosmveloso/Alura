@@ -61,3 +61,24 @@ inputTags.addEventListener("keypress", (evento) => {
     }
   } 
 })
+
+//Remover uma tag já existente 
+
+listaTags.addEventListener("click", (evento) => {
+    if (evento.target.classList.contains("remove-tag")) {
+        const tagRemover = evento.target.parentElement;
+        listaTags.removeChild(tagRemover);
+    }
+})
+
+//Limitar as tags que podem ser usadas.
+
+const tagsDisponiveis = ["Front-end", "Programação", "Data Science", "Full-Stack", "Back-end", "HTML", "CSS", "Javascript", "React"];
+
+async function verificarTagsDisponiveis(tagTexto) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(tagsDisponiveis.includes(tagTexto));
+        }, 1000)
+    })
+}
