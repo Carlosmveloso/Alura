@@ -1,10 +1,15 @@
+//Colocar os livros que estavam na API 
 const inserirLivros = document.getElementById("livros");
 
 function livrosNaTela (listaDeLivros) {
+    inserirLivros.innerHTML = "";
     listaDeLivros.forEach(livro => {
+        //let disponibilidade = verificarDisponibilidade(livro)
+        //Fazer com o operador ternário
+        let disponibilidade = livro.quantidade > 0 ? "livro__imagens" : "livro__imagens indisponivel"
         inserirLivros.innerHTML += `
             <div class="livro">
-            <img class="livro__imagens" src="${livro.imagem}" alt="${livro.alt}" />
+            <img class="${disponibilidade}" src="${livro.imagem}" alt="${livro.alt}" />
             <h2 class="livro__titulo">
                 ${livro.titulo}
             </h2>
@@ -17,3 +22,11 @@ function livrosNaTela (listaDeLivros) {
         `
     })
 }
+//Verificar a disponibilidade do livro
+//function verificarDisponibilidade (livro) {
+//    if (livro.quantidade > 0){
+//        return "livro__imagens"         
+//    } else {
+//        return "livro__imagens indisponivel"
+//    }
+//}
