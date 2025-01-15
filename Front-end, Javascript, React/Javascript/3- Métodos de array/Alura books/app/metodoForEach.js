@@ -1,7 +1,9 @@
 //Colocar os livros que estavam na API 
 const inserirLivros = document.getElementById("livros");
+const comboTodosOsLivros = document.getElementById("valor_total_livros_disponiveis")
 
 function livrosNaTela (listaDeLivros) {
+    comboTodosOsLivros.innerHTML = "";
     inserirLivros.innerHTML = "";
     listaDeLivros.forEach(livro => {
         //let disponibilidade = verificarDisponibilidade(livro)
