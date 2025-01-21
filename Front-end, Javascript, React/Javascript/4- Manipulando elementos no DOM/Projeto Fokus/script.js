@@ -3,20 +3,35 @@ const html = document.querySelector("html");
 const btnFoco = document.querySelector(".app__card-button--foco");
 const btnCurto = document.querySelector(".app__card-button--curto");
 const btnLongo = document.querySelector(".app__card-button--longo");
+
 //Trocar de imagem
 const imagemPrincipal = document.querySelector(".app__image");
+
 //Trocar de texto
 const textoPrincipal = document.querySelector(".app__title");
+
 //Trocar de modo
 const modeButton = document.querySelectorAll(".app__card-button");
+
 //Pegando arquivos de audio
 const botaoMusica = document.getElementById("alternar-musica");
 const musicaAmbiente = new Audio("./sons/luna-rise-part-one.mp3");
 musicaAmbiente.loop = true
+const audioPlay = new Audio("./sons/play.wav");
+const audioPausa = new Audio("./sons/pause.mp3");
+const audioTempoFinalizado = new Audio("./sons/beep.mp3");
+
 //Temporizador
 const BotaoComecar = document.getElementById("start-pause");
-let temporizador5 = 5
+let temporizador5 = 1500
 let intervalo = null
+const temporizador = document.getElementById("timer")
+
+//Alterando o texto do botão começar
+const botaoComecarOuPausarTemporizador = document.querySelector("#start-pause span");
+
+//Alterando a imagem do botao começar
+const imagemStatusbtn = document.querySelector("#button-icon");
 
 //Criando o evento de tocar a música
 //O evento change é usado para trabalhar com inputs do tipo checkbox
@@ -78,27 +93,41 @@ function alterarModo (contexto) {
 //Aplicando a funcionaliadade de contagem regressiva
 const contagemRegressiva = () => {
     if (temporizador5 <= 0) {
-        zerarContagem()
-        alert("Tempo finalizado")
+        //audioTempoFinalizado.play();//Audio que será executado quando o tempo acabar
+        alert("Tempo finalizado");
+        zerarContagem();
         return
     }
     temporizador5 -= 1
-    console.log("Temporizador" + temporizador5); 
+    tempoNaTela()
 }
 
 BotaoComecar.addEventListener("click", iniciarOuPausarContagem)
 
 function iniciarOuPausarContagem () {
     if (intervalo) {
+        audioPausa.play();//Audio que será executado quando a contagem pausar
         zerarContagem()
         return
     }
+    audioPlay.play();//Audio que será executado quando o tempo começar
     intervalo = setInterval(contagemRegressiva, 1000)//Função ou método que vai ser executado, em quanto tempo para ser executado
+    botaoComecarOuPausarTemporizador.textContent = "Pausar"
+    imagemStatusbtn.src = "/imagens/pause.png";
 }
 
 function zerarContagem () {
-    clearInterval(intervalo)
+    clearInterval(intervalo);
+    botaoComecarOuPausarTemporizador.textContent = "Começar";
+    imagemStatusbtn.src = "/imagens/play_arrow.png";
     intervalo = null
 }
+
+function tempoNaTela() {
+    const tempo = temporizador5
+    temporizador.innerHTML = `${tempo}`
+}
+
+tempoNaTela();
 
 
