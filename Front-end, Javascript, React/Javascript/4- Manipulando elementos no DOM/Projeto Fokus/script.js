@@ -23,7 +23,7 @@ const audioTempoFinalizado = new Audio("./sons/beep.mp3");
 
 //Temporizador
 const BotaoComecar = document.getElementById("start-pause");
-let temporizador5 = 1500
+let temporizadorTotal = 1500
 let intervalo = null
 const temporizador = document.getElementById("timer")
 
@@ -45,21 +45,25 @@ botaoMusica.addEventListener("change", () => {
 
 //Alterando o cor de fundo, imagem e texto de acordo com o botão
 btnFoco.addEventListener("click", () => {
+    temporizadorTotal = 1500
     alterarModo("foco")
     btnFoco.classList.add("active")
 });
 
 btnCurto.addEventListener("click", () => {
+    temporizadorTotal = 300
     alterarModo("descanso-curto")
     btnCurto.classList.add("active")
 });
 
 btnLongo.addEventListener("click", () => {
+    temporizadorTotal = 900
     alterarModo("descanso-longo")
     btnLongo.classList.add("active")
 });
 
 function alterarModo (contexto) {
+    tempoNaTela()
     html.setAttribute("data-contexto", contexto)
     imagemPrincipal.setAttribute("src", `/imagens/${contexto}.png`)
     modeButton.forEach(function (contexto) {
@@ -92,13 +96,13 @@ function alterarModo (contexto) {
 }
 //Aplicando a funcionaliadade de contagem regressiva
 const contagemRegressiva = () => {
-    if (temporizador5 <= 0) {
-        //audioTempoFinalizado.play();//Audio que será executado quando o tempo acabar
+    if (temporizadorTotal <= 0) {
+        audioTempoFinalizado.play();//Audio que será executado quando o tempo acabar
         alert("Tempo finalizado");
         zerarContagem();
         return
     }
-    temporizador5 -= 1
+    temporizadorTotal -= 1
     tempoNaTela()
 }
 
@@ -124,8 +128,9 @@ function zerarContagem () {
 }
 
 function tempoNaTela() {
-    const tempo = temporizador5
-    temporizador.innerHTML = `${tempo}`
+    const tempo = new Date(temporizadorTotal * 1000)
+    const tempoEmMinutos = tempo.toLocaleTimeString("pt-BR", {minute: "2-digit", second: "2-digit"})
+    temporizador.innerHTML = `${tempoEmMinutos}`
 }
 
 tempoNaTela();
