@@ -5,8 +5,12 @@ const formAdicionarTarefa = document.querySelector(".app__form-add-task");
 const textarea = document.querySelector(".app__form-textarea");
 const ulTarefas = document.querySelector(".app__section-task-list");
 const btnCancelar = document.querySelector(".app__form-footer__button--cancel");
+const paragrafoDescricaoTarefa = document.querySelector(
+  ".app__section-active-task-description"
+);
 
 const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
+let tarefaSelecionada = null; // Usando let porque ela vai ser alterada várias vezes
 
 function atualizarTarefas() {
   localStorage.setItem("tarefas", JSON.stringify(tarefas)); // A api JSON com o método stringify faz a conversão para string.
@@ -35,9 +39,9 @@ function criarElementoTarefa(tarefa) {
   // O onlick sobreescreve todos os outros apenas mostrando o ultimo a ser executado, enquanto o addEventListener acumula e mostra todos no final.
   // Editando uma tarefa ja existente
   botao.onclick = () => {
-    debugger
+    //debugger
     const novaDescricao = prompt("Qual o novo nome da tarefa ?");
-    console.log(`Nova descrição da tarefa: ${novaDescricao}`);
+    //console.log(`Nova descrição da tarefa: ${novaDescricao}`);
 
     if (novaDescricao) {
       paragrafo.textContent = novaDescricao;
@@ -55,6 +59,23 @@ function criarElementoTarefa(tarefa) {
   li.append(paragrafo);
   li.append(botao);
 
+  li.onclick = () => {
+    document
+      .querySelectorAll(".app__section-task-list-item-active")
+      .forEach((elemento) => {
+        elemento.classList.remove("app__section-task-list-item-active");
+      });
+    if (tarefaSelecionada == tarefa) {
+      paragrafoDescricaoTarefa.textContent = "";
+      tarefaSelecionada = null;
+      return;
+    }
+    tarefaSelecionada = tarefa;
+    paragrafoDescricaoTarefa.textContent = tarefa.descricao;
+
+    li.classList.add("app__section-task-list-item-active");
+  };
+
   return li;
 }
 
@@ -64,7 +85,7 @@ btnAdicionarTarefa.addEventListener("click", () => {
 
 //Função de cancelar o formulário que estava criando.
 const limparFormulario = () => {
-  textarea.value = "";//Limpar o conteudo do textarea
+  textarea.value = ""; //Limpar o conteudo do textarea
   formAdicionarTarefa.classList.add("hidden");
 };
 
