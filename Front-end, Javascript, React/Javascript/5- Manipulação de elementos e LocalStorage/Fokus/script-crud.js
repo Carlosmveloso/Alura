@@ -4,6 +4,7 @@ const btnAdicionarTarefa = document.querySelector(".app__button--add-task");
 const formAdicionarTarefa = document.querySelector(".app__form-add-task");
 const textarea = document.querySelector(".app__form-textarea");
 const ulTarefas = document.querySelector(".app__section-task-list");
+const btnCancelar = document.querySelector(".app__form-footer__button--cancel");
 
 const tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
@@ -60,6 +61,14 @@ function criarElementoTarefa(tarefa) {
 btnAdicionarTarefa.addEventListener("click", () => {
   formAdicionarTarefa.classList.toggle("hidden"); //O método toggle faz a altenância na class hidden.
 });
+
+//Função de cancelar o formulário que estava criando.
+const limparFormulario = () => {
+  textarea.value = "";//Limpar o conteudo do textarea
+  formAdicionarTarefa.classList.add("hidden");
+};
+
+btnCancelar.addEventListener("click", limparFormulario);
 
 formAdicionarTarefa.addEventListener("submit", (evento) => {
   evento.preventDefault();
