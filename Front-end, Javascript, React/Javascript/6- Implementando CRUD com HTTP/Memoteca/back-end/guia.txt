@@ -1,0 +1,2 @@
+1- Usar o comando cd back-end para entrar na pasta do json
+2- Usar o comando npm start para iniciar o json
