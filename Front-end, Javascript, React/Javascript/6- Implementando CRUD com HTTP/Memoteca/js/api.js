@@ -1,5 +1,7 @@
+// Objetivo: Responsável por lidar com as solicitações da à API
+
 const requisiçõesApi = {
-  async buscarPensamento() {
+  async buscarPensamentos() {
     try {
       const response = await fetch("http://localhost:3000/pensamentos");
       return await response.json(); // Fazendo a conversão do formato json para o objeto javascript.
