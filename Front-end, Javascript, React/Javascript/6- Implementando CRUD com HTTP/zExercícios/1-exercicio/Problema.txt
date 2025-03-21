@@ -1,0 +1,4 @@
+Foco desse exercício é:
+1- Criar uma api com JSON server = OK 
+2- Buscar dados na API = OK
+3- Exibir dados no Front-End = 
