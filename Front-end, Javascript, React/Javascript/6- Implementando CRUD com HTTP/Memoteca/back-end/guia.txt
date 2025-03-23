@@ -1,2 +1,11 @@
+- Como instalar o JSON server
+1- Instale usando o comando (npm i -g json-server)
+
+- Como instalar e configurar o package.json
+1- Entrar dentro da pasta com o comando (cd nomeDaPasta)
+2- Baixar com o comando (npm init -y)
+3- Dentro do package.json trocar a linha do ("error") por ( "start": "json-server --watch db.json --port 3000") 
+
+- Como inicializar o JSON server
 1- Usar o comando cd back-end para entrar na pasta do json
 2- Usar o comando npm start para iniciar o json
