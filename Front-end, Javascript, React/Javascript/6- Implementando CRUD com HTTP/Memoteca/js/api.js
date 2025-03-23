@@ -10,6 +10,24 @@ const requisiçõesApi = {
       throw error;
     }
   },
+
+  //Criar um novo pensamento
+  async novoPensamento(pensamento) {
+    try {
+      const response = await fetch("http://localhost:3000/pensamentos", {
+        // O "POST" server para enviar uma informação ao fetch e o "GET" para receber uma informação do fetch
+        method: "POST",
+        //Server para informar o tipo de conteúdo que está sendo enviado
+        headers: {"Content-Type": "aplication/json"},
+        //Funcão de converter um objeto javascript para um formato string JSON
+        body: JSON.stringify(pensamento)
+      })
+      return await response.json()
+    } catch {
+      alert("Error ao conectar com o banco de dados")
+      throw error
+    }
+  },
 };
 
 export default requisiçõesApi; // Exportar a api para outros arquivos js.
