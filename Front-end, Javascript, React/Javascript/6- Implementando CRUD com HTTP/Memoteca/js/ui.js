@@ -4,7 +4,7 @@ import requisiçõesApi from "./api.js"; // Importando uma constante js de outro
 
 const interfaceDoUsuario = {
   async renderizarPensamentos() {
-    const listaDePensamentos = document.getElementById("lista-pensamentos");
+    //const listaDePensamentos = document.getElementById("lista-pensamentos");
     try {
       const pensamentos = await requisiçõesApi.buscarPensamentos();
       pensamentos.forEach(interfaceDoUsuario.adicionarNovoPensamentoNaLista);
