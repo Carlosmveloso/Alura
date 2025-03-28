@@ -25,7 +25,7 @@ const requisiçõesApi = {
       })
       return await response.json()
     } catch {
-      alert("Erro ao conectar com o banco de dados")
+      alert("Erro ao salvar o pensamento")
       throw error
     }
   },
