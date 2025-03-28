@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
   //Colocar o formulário para funcionar para criar um novo pensamento
   const formularioNovoPensamento = document.getElementById("pensamento-form");
   formularioNovoPensamento.addEventListener("submit", envioDoFormulario); // O evento de submit é específico para formulários
+  const btnCancelar = document.getElementById("botao-cancelar");
+  btnCancelar.addEventListener("click", renderizarLimpezaDoFormulario);
 });
 
 async function envioDoFormulario(envio) {
@@ -18,9 +20,13 @@ async function envioDoFormulario(envio) {
   const autoria = document.getElementById("pensamento-autoria").value;
 
   try {
-    await requisiçõesApi.novoPensamento({conteudo, autoria});
+    await requisiçõesApi.novoPensamento({ conteudo, autoria });
     interfaceDoUsuario.renderizarPensamentos();
   } catch {
-    alert("Erro ao salvar com banco de dados")
+    alert("Erro ao salvar com banco de dados");
   }
+}
+
+function renderizarLimpezaDoFormulario() {
+  interfaceDoUsuario.limparFormulario();
 }

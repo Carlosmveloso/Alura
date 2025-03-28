@@ -43,5 +43,9 @@ const interfaceDoUsuario = {
     listaDePensamentos.appendChild(novoPensamento);
 
   },
+  
+  limparFormulario() {
+    document.getElementById("pensamento-form").reset();
+  }
 };
 export default interfaceDoUsuario;
