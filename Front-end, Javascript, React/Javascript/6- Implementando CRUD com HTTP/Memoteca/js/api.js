@@ -19,7 +19,7 @@ const requisiçõesApi = {
         // O "POST" serve para enviar uma informação ao fetch e o "GET" para receber uma informação do fetch
         method: "POST",
         //Serve para informar o tipo de conteúdo que está sendo enviado
-        headers: { "Content-Type": "aplication/json" },
+        headers: { "Content-Type": "application/json" },
         //Funcão de converter um objeto javascript para um formato string JSON
         body: JSON.stringify(pensamento),
       });
@@ -45,7 +45,7 @@ const requisiçõesApi = {
       const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {
         method: "PUT",
         headers: {
-          "Content-Type": "aplication/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(pensamento),
       });

@@ -43,7 +43,7 @@ const interfaceDoUsuario = {
     //Criando o ícone de editar dentro do card
     const btnEditar = document.createElement("button");
     btnEditar.classList.add("botao-editar");
-    btnEditar.onclick = () => ui.editarPensamento(pensamento.id);
+    btnEditar.onclick = () => interfaceDoUsuario.editarPensamento(pensamento.id);
     const iconeEditar = document.createElement("img");
     iconeEditar.src = "assets/imagens/icone-editar.png";
     iconeEditar.alt = "Ícone de um lápis";
@@ -64,7 +64,7 @@ const interfaceDoUsuario = {
   },
 
   async editarPensamento(pensamentoId) {
-    const pensamento = await api.buscarPensamentoPorId(pensamentoId);
+    const pensamento = await requisiçõesApi.buscarPensamentoPorId(pensamentoId);
     document.getElementById("pensamento-id").value = pensamento.id
     document.getElementById("pensamento-conteudo").value = pensamento.conteudo
     document.getElementById("pensamento-autoria").value = pensamento.autoria
