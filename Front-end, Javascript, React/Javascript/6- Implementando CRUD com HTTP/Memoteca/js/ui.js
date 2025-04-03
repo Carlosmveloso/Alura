@@ -36,16 +36,38 @@ const interfaceDoUsuario = {
     autoriaDoPensamento.textContent = pensamento.autoria;
     autoriaDoPensamento.classList.add("pensamento-autoria");
 
+    //Criando o espaço para os ícones de editar e excluir
+    const icones = document.createElement("div");
+    icones.classList.add("icones")
+
+    //Criando o ícone de editar dentro do card
+    const btnEditar = document.createElement("button");
+    btnEditar.classList.add("botao-editar");
+    btnEditar.onclick = () => ui.editarPensamento(pensamento.id);
+    const iconeEditar = document.createElement("img");
+    iconeEditar.src = "assets/imagens/icone-editar.png";
+    iconeEditar.alt = "Ícone de um lápis";
+    
+
     //Organizando os elementos dentro do card
     novoPensamento.appendChild(imagemAspas);
     novoPensamento.appendChild(conteudoDoPensamento);
     novoPensamento.appendChild(autoriaDoPensamento);
+    novoPensamento.appendChild(icones)
+    icones.appendChild(btnEditar)
+    btnEditar.appendChild(iconeEditar);
     listaDePensamentos.appendChild(novoPensamento);
-
   },
-  
+
   limparFormulario() {
     document.getElementById("pensamento-form").reset();
-  }
+  },
+
+  async editarPensamento(pensamentoId) {
+    const pensamento = await api.buscarPensamentoPorId(pensamentoId);
+    document.getElementById("pensamento-id").value = pensamento.id
+    document.getElementById("pensamento-conteudo").value = pensamento.conteudo
+    document.getElementById("pensamento-autoria").value = pensamento.autoria
+  },
 };
 export default interfaceDoUsuario;
