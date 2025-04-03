@@ -19,14 +19,40 @@ const requisiçõesApi = {
         // O "POST" serve para enviar uma informação ao fetch e o "GET" para receber uma informação do fetch
         method: "POST",
         //Serve para informar o tipo de conteúdo que está sendo enviado
-        headers: {"Content-Type": "aplication/json"},
+        headers: { "Content-Type": "aplication/json" },
         //Funcão de converter um objeto javascript para um formato string JSON
-        body: JSON.stringify(pensamento)
-      })
-      return await response.json()
+        body: JSON.stringify(pensamento),
+      });
+      return await response.json();
     } catch {
-      alert("Erro ao salvar o pensamento")
-      throw error
+      alert("Erro ao salvar o pensamento");
+      throw error;
+    }
+  },
+
+  async buscarPensamentoPorId(id) {
+    try {
+      const response = await fetch(`http://localhost:3000/pensamentos/${id}`);
+      return await response.json(); // Fazendo a conversão do formato json para o objeto javascript.
+    } catch {
+      alert("Erro ao buscar pensamento");
+      throw error;
+    }
+  },
+
+  async editarPensamento(pensamento) {
+    try {
+      const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "aplication/json",
+        },
+        body: JSON.stringify(pensamento),
+      });
+      return await response.json();
+    } catch {
+      alert("Erro ao editar pensamento");
+      throw error;  
     }
   },
 };
