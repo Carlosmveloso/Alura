@@ -20,7 +20,11 @@ async function envioDoFormulario(envio) {
   const autoria = document.getElementById("pensamento-autoria").value;
 
   try {
-    await requisiçõesApi.novoPensamento({ conteudo, autoria });
+    if (id) {
+      await requisiçõesApi.editarPensamento({ id, conteudo, autoria });
+    } else {
+      await requisiçõesApi.novoPensamento({ conteudo, autoria });
+    }
     interfaceDoUsuario.renderizarPensamentos();
   } catch {
     alert("Erro ao salvar com banco de dados");
