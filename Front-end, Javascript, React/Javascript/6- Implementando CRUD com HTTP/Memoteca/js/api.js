@@ -29,7 +29,7 @@ const requisiçõesApi = {
       throw error;
     }
   },
-
+  //Buscar um único pensamento por ID
   async buscarPensamentoPorId(id) {
     try {
       const response = await fetch(`http://localhost:3000/pensamentos/${id}`);
@@ -39,7 +39,7 @@ const requisiçõesApi = {
       throw error;
     }
   },
-
+  //Função de editar um pensamento
   async editarPensamento(pensamento) {
     try {
       const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {

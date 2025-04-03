@@ -12,13 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnCancelar = document.getElementById("botao-cancelar");
   btnCancelar.addEventListener("click", renderizarLimpezaDoFormulario);
 });
-
+//Envio de um novo pensamento
 async function envioDoFormulario(envio) {
   envio.preventDefault();
   const id = document.getElementById("pensamento-id").value;
   const conteudo = document.getElementById("pensamento-conteudo").value;
   const autoria = document.getElementById("pensamento-autoria").value;
 
+  //Uma condição que se vai criar um novo pensamento ou editar um já existente
   try {
     if (id) {
       await requisiçõesApi.editarPensamento({ id, conteudo, autoria });
@@ -30,7 +31,7 @@ async function envioDoFormulario(envio) {
     alert("Erro ao salvar com banco de dados");
   }
 }
-
+//Função de limpar o campo do formulário
 function renderizarLimpezaDoFormulario() {
   interfaceDoUsuario.limparFormulario();
 }

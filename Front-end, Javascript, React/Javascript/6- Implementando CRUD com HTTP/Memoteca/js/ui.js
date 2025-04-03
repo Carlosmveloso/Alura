@@ -62,7 +62,7 @@ const interfaceDoUsuario = {
   limparFormulario() {
     document.getElementById("pensamento-form").reset();
   },
-
+ //Colocando a função de editar na interface
   async editarPensamento(pensamentoId) {
     const pensamento = await requisiçõesApi.buscarPensamentoPorId(pensamentoId);
     document.getElementById("pensamento-id").value = pensamento.id
