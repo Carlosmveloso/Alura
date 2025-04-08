@@ -42,17 +42,31 @@ const requisiçõesApi = {
   //Função de editar um pensamento
   async editarPensamento(pensamento) {
     try {
-      const response = await fetch(`http://localhost:3000/pensamentos/${pensamento.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(pensamento),
-      });
+      const response = await fetch(
+        `http://localhost:3000/pensamentos/${pensamento.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(pensamento),
+        }
+      );
       return await response.json();
     } catch {
       alert("Erro ao editar pensamento");
-      throw error;  
+      throw error;
+    }
+  },
+  //Adicionando a funcionalidade de excluir um pensamento
+  async excluirPensamento(id) {
+    try {
+      const response = await fetch(`http://localhost:3000/pensamentos/${id}`, {
+        method: "DELETE",
+      });
+    } catch {
+      alert("Erro ao excluir um pesamento");
+      throw error;
     }
   },
 };

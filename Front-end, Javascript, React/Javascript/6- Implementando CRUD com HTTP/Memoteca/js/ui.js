@@ -38,23 +38,40 @@ const interfaceDoUsuario = {
 
     //Criando o espaço para os ícones de editar e excluir
     const icones = document.createElement("div");
-    icones.classList.add("icones")
+    icones.classList.add("icones");
 
     //Criando o ícone de editar dentro do card
     const btnEditar = document.createElement("button");
     btnEditar.classList.add("botao-editar");
-    btnEditar.onclick = () => interfaceDoUsuario.editarPensamento(pensamento.id);
+    btnEditar.onclick = () =>
+      interfaceDoUsuario.editarPensamento(pensamento.id);
     const iconeEditar = document.createElement("img");
     iconeEditar.src = "assets/imagens/icone-editar.png";
     iconeEditar.alt = "Ícone de um lápis";
-    
+
+    //Criando o ícone de excluir dentro do card
+    const btnExcluir = document.createElement("button");
+    btnExcluir.classList.add("botao-excluir");
+    btnExcluir.onclick = async () => {
+      try {
+        await requisiçõesApi.excluirPensamento(pensamento.id);
+        interfaceDoUsuario.renderizarPensamentos();
+      } catch {
+        alert("Error ao excluir pensamento");
+      }
+    };
+    const iconeExcluir = document.createElement("img");
+    iconeExcluir.src = "assets/imagens/icone-excluir.png";
+    iconeExcluir.alt = "Icone de uma lixeira";
+    btnExcluir.appendChild(iconeExcluir)
 
     //Organizando os elementos dentro do card
     novoPensamento.appendChild(imagemAspas);
     novoPensamento.appendChild(conteudoDoPensamento);
     novoPensamento.appendChild(autoriaDoPensamento);
-    novoPensamento.appendChild(icones)
-    icones.appendChild(btnEditar)
+    novoPensamento.appendChild(icones);
+    icones.appendChild(btnEditar);
+    icones.appendChild(btnExcluir);
     btnEditar.appendChild(iconeEditar);
     listaDePensamentos.appendChild(novoPensamento);
   },
@@ -62,12 +79,12 @@ const interfaceDoUsuario = {
   limparFormulario() {
     document.getElementById("pensamento-form").reset();
   },
- //Colocando a função de editar na interface
+  //Colocando a função de editar na interface
   async editarPensamento(pensamentoId) {
     const pensamento = await requisiçõesApi.buscarPensamentoPorId(pensamentoId);
-    document.getElementById("pensamento-id").value = pensamento.id
-    document.getElementById("pensamento-conteudo").value = pensamento.conteudo
-    document.getElementById("pensamento-autoria").value = pensamento.autoria
+    document.getElementById("pensamento-id").value = pensamento.id;
+    document.getElementById("pensamento-conteudo").value = pensamento.conteudo;
+    document.getElementById("pensamento-autoria").value = pensamento.autoria;
   },
 };
 export default interfaceDoUsuario;
