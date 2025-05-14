@@ -2,6 +2,8 @@ import Banner from "./componentes/Banner"; //* Já importa automaticamente a fun
 import Formulario from "./componentes/Formulario";
 //* Quando eu coloco o nome do meu arquivo se chama "index.js" basta colocar o nome da pasta
 
+
+//* Quando no "Return" você usar () refere-se ao JSX e quando usa {} refere-se a um objeto.
 function App() {
   return (
     <div className="App">
