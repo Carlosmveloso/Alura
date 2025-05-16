@@ -26,14 +26,14 @@ const Formulario = (props) => {
 
   //* Conferir a submissão do código
   const onSave = (evento) => {
-    // Previne o evento padrão do navegador
+    //* Previne o evento padrão do navegador
     evento.preventDefault();
     props.aoColaboradorCadastrado({
       nome,
       cargo,
       imagem,
-      time
-    })
+      time,
+    });
   };
 
   return (
