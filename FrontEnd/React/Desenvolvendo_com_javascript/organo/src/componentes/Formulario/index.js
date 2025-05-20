@@ -5,7 +5,7 @@ import ListaSuspensa from "../ListaSuspensa";
 import "./Formulario.css";
 
 const Formulario = (props) => {
-  // Array dos times que podem ser escolhidos
+  //* Array dos times que podem ser escolhidos
   const times = [
     "Programação",
     "Front-end",
